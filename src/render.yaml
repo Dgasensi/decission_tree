@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: diabetes-predictor
+    env: python
+    plan: free
+    buildCommand: "cd /path/to/project && pip install -r requirements.txt"
+    startCommand: "cd /path/to/project && python wsgi.py"

@@ -5,35 +5,86 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diabetes Prediction</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif; /* Fuente más limpia */
+            background-color: #f4f4f9; /* Color de fondo suave */
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        h2 {
+            text-align: center; /* Centrar el título */
+        }
+        form {
+            max-width: 600px; /* Limita el ancho del formulario */
+            margin: 20px auto; /* Centrar el formulario en la página */
+            padding: 20px;
+            background: white; /* Fondo blanco para el formulario */
+            box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Sombra sutil alrededor del formulario */
+        }
+        label {
+            font-weight: bold; /* Hacer las etiquetas en negrita */
+            margin-top: 10px;
+            display: block; /* Hacer que cada etiqueta tenga su propia línea */
+        }
+        input[type="number"] {
+            width: 100%; /* Ancho completo */
+            padding: 8px;
+            margin-top: 5px; /* Espacio sobre el campo */
+            margin-bottom: 20px; /* Espacio bajo el campo */
+            box-sizing: border-box; /* Border-box model */
+            border: 1px solid #ccc; /* Borde sutil */
+            border-radius: 4px; /* Bordes redondeados */
+        }
+        input[type="submit"] {
+            background-color: #5cb85c; /* Color de fondo verde */
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer; /* Cursor tipo puntero */
+            width: 100%;
+            font-size: 16px;
+        }
+        input[type="submit"]:hover {
+            background-color: #4cae4c; /* Cambiar el color al pasar el mouse */
+        }
+        #prediction-result {
+            max-width: 600px;
+            margin: 20px auto;
+            text-align: center;
+            padding: 10px;
+            background: #ddd;
+            border-radius: 4px;
+        }
+    </style>
 </head>
 <body>
     <h2>Diabetes Prediction Form</h2>
     <form action="/predict" method="post">
         <label for="Pregnancies">Pregnancies:</label>
-        <input type="number" id="Pregnancies" name="Pregnancies"><br><br>
-                <label for="Glucose">Glucose:</label>
-        <input type="number" id="Glucose" name="Glucose"><br><br>
+        <input type="number" id="Pregnancies" name="Pregnancies">
+        <label for="Glucose">Glucose:</label>
+        <input type="number" id="Glucose" name="Glucose">
         <label for="BloodPressure">BloodPressure:</label>
-        <input type="number" id="BloodPressure" name="BloodPressure"><br><br>
+        <input type="number" id="BloodPressure" name="BloodPressure">
         <label for="SkinThickness">SkinThickness:</label>
-        <input type="number" id="SkinThickness" name="SkinThickness"><br><br>
+        <input type="number" id="SkinThickness" name="SkinThickness">
         <label for="Insulin">Insulin:</label>
-        <input type="number" id="Insulin" name="Insulin"><br><br>
+        <input type="number" id="Insulin" name="Insulin">
         <label for="BMI">BMI:</label>
-        <input type="number" id="BMI" name="BMI"><br><br>
+        <input type="number" id="BMI" name="BMI">
         <label for="DiabetesPedigreeFunction">DiabetesPedigreeFunction:</label>
-        <input type="number" id="DiabetesPedigreeFunction" name="DiabetesPedigreeFunction"><br><br>
+        <input type="number" id="DiabetesPedigreeFunction" name="DiabetesPedigreeFunction">
         <label for="Age">Age:</label>
-        <input type="number" id="Age" name="Age"><br><br>
-        <!-- Añadir campos adicionales para cada característica que necesites -->
+        <input type="number" id="Age" name="Age">
         <input type="submit" value="Predict">
     </form>
-    <!-- Después del formulario en tu archivo form.html -->
     <div id="prediction-result">
     {% if response %}
         <p>Resultado de la predicción: {{ response }}</p>
     {% endif %}
     </div>
-
 </body>
 </html>
